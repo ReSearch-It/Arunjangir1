@@ -1,0 +1,256 @@
+/* Importing Multiple Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Merriweather:wght@300;400;700&family=Roboto:wght@300;500;700&display=swap');
+
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background: #f8f9fa;
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: #002147;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+}
+
+.logo img {
+    width: 150px;
+    vertical-align: middle;
+}
+
+.logo h1 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    transition: 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ffcc00;
+}
+
+/* Newsletter Banner */
+.newsletter-banner {
+    background: #ffcc00;
+    color: black;
+    padding: 15px;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newsletter-banner input {
+    padding: 8px;
+    margin-left: 15px;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+.newsletter-banner button {
+    padding: 8px 15px;
+    background: #002147;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.newsletter-banner button:hover {
+    background: #ff7700;
+}
+
+/* Hero Section */
+.hero {
+    padding: 50px;
+    background: linear-gradient(135deg, #002147, #ff7700);
+    color: white;
+}
+
+.hero h2 {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.hero p {
+    font-size: 18px;
+}
+
+.hero .btn {
+    background: #ffcc00;
+    color: #002147;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.hero .btn:hover {
+    background: #002147;
+    color: white;
+}
+
+/* Services Section */
+#services-section {
+    display: none;
+    padding: 40px;
+    background: url('cartoon-logo.png') no-repeat center center/cover;
+    color: white;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+}
+
+#services-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+}
+
+#services-section h2, 
+#services-section h3, 
+#services-section p, 
+#services-section ul {
+    position: relative;
+    z-index: 2;
+}
+
+#services-section .btn {
+    background: #ffcc00;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+#services-section .btn:hover {
+    background: #ff7700;
+    color: white;
+}
+
+/* Contact Form */
+.contact {
+    background: #002147;
+    color: white;
+    padding: 40px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.contact form {
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact label {
+    text-align: left;
+    margin: 10px 0 5px;
+    font-size: 16px;
+}
+
+.contact input, 
+.contact textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.contact button {
+    width: 100%;
+    padding: 12px;
+    background: #ffcc00;
+    color: black;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.contact button:hover {
+    background: #ff7700;
+    color: white;
+}
+
+/* Footer */
+footer {
+    background: #040b15;
+    color: rgb(233, 241, 237);
+    padding: 30px 0;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-logo img {
+    width: 100px; 
+    margin-right: 20px;
+}
+
+.footer-contact {
+    text-align: center;
+}
+
+.footer-contact p {
+    margin: 5px 0;
+    font-size: 16px;x
+}
+
+.footer-contact a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-contact a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: 0.8;
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResearchIt - Official Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Government Logo">
+            <h1>ResearchIt - Official Portal</h1>
+            <p>Empowering Research and Innovation</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#" onclick="showServices(); return false;">Services</a></li>
+                <li><a href="#" onclick="showAbout(); return false;">About Us</a></li>
+                <li><a href="#">Policies</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sliding Newsletter Banner -->
+    <div class="newsletter-banner">
+        <p>📢 Subscribe to our newsletter for the latest research updates!</p>
+        <input type="email" id="newsletter-email" placeholder="Enter your email">
+        <button onclick="subscribeNewsletter()">Subscribe</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Welcome to ResearchIt</h2>
+        <p>Your Trusted Platform for Research Paper Writing & Consultation</p>
+        <a href="#contact" class="btn">Get in Touch</a>
+    </section>
+
+    <!-- Our Services Section (Initially Hidden) -->
+    <section id="services-section" style="display: none; padding: 20px; background: #f4f4f4;">
+        <h2>Our Services</h2>
+        <p>At ResearchIt, we provide comprehensive research support services to help you excel in your academic and professional journey.</p>
+
+        <h3>📌 Research Paper Writing</h3>
+        <p>We craft high-quality research papers with proper citations and formatting.</p>
+
+        <h3>🔍 Editing & Proofreading</h3>
+        <p>Ensure your paper meets the highest academic standards with our expert proofreading services.</p>
+
+        <h3>📊 Poster & Presentation Design</h3>
+        <p>We create visually appealing posters and PowerPoint slides for conferences and research presentations.</p>
+
+        <h3>📄 Journal Formatting</h3>
+        <p>Get your research papers formatted according to journal submission guidelines.</p>
+
+        <h3>🎓 Thesis & Dissertation Assistance</h3>
+        <p>We provide end-to-end assistance for master's and PhD research work.</p>
+
+        <button onclick="hideServices()" class="btn">Close</button>
+    </section>
+
+    <!-- About Us Section (Initially Hidden) -->
+    <section id="about" class="about" style="display: none;">
+        <h2>About Us</h2>
+        <p>ResearchIt is a dedicated platform that provides top-notch research paper writing, editing, and consulting services.</p>
+        <p>Founded by <strong>Arun Jangir</strong>, ResearchIt aims to support researchers by offering expert guidance in various fields.</p>
+
+        <h3>Why Choose Us?</h3>
+        <ul>
+            <li>✅ Expert research professionals from various fields</li>
+            <li>✅ High-quality writing and editing for journal publications</li>
+            <li>✅ Affordable and reliable services</li>
+            <li>✅ Creative poster and PPT design for conferences</li>
+        </ul>
+
+        <button onclick="hideAbout()" class="btn">Close</button>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <form id="contact-form">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="button" class="btn" onclick="openGmail()">Send to theresearchit@gmail.com</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+           
+            <div class="footer-contact">
+                <p><strong>🕒 Office Hours:</strong> Mon - Sat | 10:00 AM - 6:00 PM IST</p>
+                <p><strong>📍 Office Address:</strong> ResearchIt Inc., 0911 Innovation Street, Bangalore, India</p>
+                <p><strong>📞 Phone:</strong> +91-9079094194</p>
+                <p><strong>📧 Email:</strong> <a href="mailto:theresearchit@gmail.com">theresearchit@gmail.com</a></p>
+            </div>
+        </div>
+        <p>&copy; 2025 ResearchIt. All Rights Reserved. | An initiative by Arun Jangir & ResearchIt Inc.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function showServices() {
+            var section = document.getElementById("services-section");
+            section.style.display = (section.style.display === "none" || section.style.display === "") ? "block" : "none";
+        }
+
+        function hideServices() {
+            document.getElementById("services-section").style.display = "none";
+        }
+
+        function showAbout() {
+            var section = document.getElementById("about");
+            section.style.display = (section.style.display === "none" || section.style.display === "") ? "block" : "none";
+        }
+
+        function hideAbout() {
+            document.getElementById("about").style.display = "none";
+        }
+
+        function openGmail() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var message = document.getElementById("message").value;
+
+            if (name && email && message) {
+                var mailtoLink = `mailto:theresearchit@gmail.com?subject=Contact from ${name}&body=Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
+                window.location.href = mailtoLink;
+            } else {
+                alert("Please fill all fields before sending.");
+            }
+        }
+    </script>
+
+</body>
+</html>
