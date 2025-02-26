@@ -29,6 +29,202 @@
         </nav>
     </header>
 
+       <!-- Chatbot -->
+<div class="chat-container">
+    <div class="chat-header" onclick="toggleChat()">💬 Chat with Us</div>
+    <div class="chatbox" id="chatbox">
+        <div id="messages"></div>
+        <div class="input-box">
+            <input type="text" id="userInput" placeholder="Type a message..." onkeypress="if(event.key==='Enter') sendMessage()">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<!-- Chatbot -->
+<div class="chat-container">
+    <div class="chat-header" onclick="toggleChat()">💬 Chat with Us</div>
+    <div class="chatbox" id="chatbox">
+        <div id="messages"></div>
+        <div class="input-box">
+            <input type="text" id="userInput" placeholder="Type a message..." onkeypress="if(event.key==='Enter') sendMessage()">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+    let chatOpen = false; 
+    let step = 0;
+    let userName = "";
+    let contactInfo = "";
+
+    function toggleChat() {
+        let chatbox = document.getElementById("chatbox");
+        let messages = document.getElementById("messages");
+
+        chatOpen = !chatOpen;
+        chatbox.style.display = chatOpen ? "block" : "none";
+
+        if (chatOpen && step === 0) {
+            messages.innerHTML = ""; // Clear previous messages
+            setTimeout(() => chatbotGreeting(), 500); // Show greeting message
+        }
+    }
+
+    function chatbotGreeting() {
+        let messages = document.getElementById("messages");
+        let greeting = getGreeting();
+        messages.innerHTML += `<p class="message bot">${greeting} Namaste! What is your name?</p>`;
+        step = 1; // Move to the next step
+    }
+
+    function getGreeting() {
+        let hour = new Date().getHours();
+        if (hour < 12) {
+            return "Good morning!";
+        } else if (hour < 18) {
+            return "Good afternoon!";
+        } else {
+            return "Good evening!";
+        }
+    }
+
+    function sendMessage() {
+        let userInput = document.getElementById("userInput").value.trim();
+        let messages = document.getElementById("messages");
+
+        if (userInput === "") return;
+
+        messages.innerHTML += `<p class="message user">${userInput}</p>`;
+        document.getElementById("userInput").value = ""; // Clear input field
+
+        setTimeout(() => chatbotResponse(userInput), 800);
+    }
+
+    function chatbotResponse(input) {
+        let messages = document.getElementById("messages");
+
+        if (step === 1) {
+            userName = input;
+            messages.innerHTML += `<p class="message bot">Great, ${userName}! Please provide your contact number or email address.</p>`;
+            step = 2;
+        } else if (step === 2) {
+            if (validateContact(input)) {
+                contactInfo = input;
+                messages.innerHTML += `<p class="message bot">Thank you, ${userName}. We will contact you soon. Have a great day! 😊</p>`;
+                step = 0;
+            } else {
+                messages.innerHTML += `<p class="message bot">Please enter a valid phone number or email address.</p>`;
+            }
+        }
+
+        messages.scrollTop = messages.scrollHeight; // Auto-scroll to latest message
+    }
+
+    function validateContact(info) {
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        const phonePattern = /^\d{10}$/;
+        return emailPattern.test(info) || phonePattern.test(info);
+    }
+</script>
+
+<style>
+   .chat-container {
+    position: fixed;
+    bottom: 110px;
+    right: 20px;
+    width: 300px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif sans-serif;
+}
+
+.chat-header {
+    background-color: #0078D7;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px 5px 0 0;
+    font-weight: bold;
+}
+
+.chatbox {
+    display: none;
+    background-color: rgb(105, 237, 189);
+    border: 1px solid #181817;
+    border-radius: 0 0 5px 5px;
+    padding: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Message Styling */
+.message {
+    padding: 8px 12px;
+    margin: 8px 0;
+    border-radius: 15px;
+    max-width: 80%;
+    font-size: 14px;
+    word-wrap: break-word;
+}
+
+/* User Messages */
+.user {
+    background-color: #0078D7;
+    color: rgb(247, 234, 234);
+    text-align: right;
+    align-self: flex-end;
+    padding: 20px
+    border-radius 15px 15px 0px 15px;
+}
+
+/* Bot Messages */
+.bot {
+    background-color: #f1f1f1;
+    color: black;
+    text-align: left;
+    align-self: flex-start;
+    border-radius: 15px 15px 15px 0px;
+}
+
+/* Input Box */
+.input-box {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.input-box input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+}
+
+.input-box button {
+    background-color: #0078D7;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.input-box button:hover {
+    background-color: #005bb5;
+}
+
+</style>
+
     <!-- Sliding Newsletter Banner -->
     <div class="newsletter-banner">
         <p>📢 Subscribe to our newsletter for the latest research updates!</p>
@@ -96,7 +292,9 @@
             <label for="message">Your Message</label>
             <textarea id="message" name="message" rows="4" required></textarea>
 
-            <button type="button" class="btn" onclick="openGmail()">Send to theresearchit@gmail.com</button>
+            <div class="send-container">
+                <button type="button" class="btn" onclick="openGmail()">Send to theresearchit@gmail.com</button>
+            </div>
         </form>
     </section>
 
@@ -146,7 +344,9 @@
                 alert("Please fill all fields before sending.");
             }
         }
+        
     </script>
-
+   
 </body>
 </html>
+

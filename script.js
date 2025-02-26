@@ -18,13 +18,13 @@ function openGmail() {
 
 <script>
     function showServices() {
-        var serviceSection = document.getElementById("services-section");
-        if (serviceSection.style.display === "none" || serviceSection.style.display === "") {
-            serviceSection.style.display = "block";
-        } else {
-            serviceSection.style.display = "none";
+        serviceSection = document.getElementById("services-section")
+        (serviceSection.style.display === "none" || serviceSection.style.display === "") 
+    }   serviceSection.style.display = "block"
+         else {
+            serviceSection.style.display = "none"
         }
-    }
+    
 </script>
 
 function showContact() {

@@ -236,14 +236,12 @@ footer {
 
 .footer-contact p {
     margin: 5px 0;
-    font-size: 16px;x
-}
+    font-size: 16px;}
 
 .footer-contact a {
-    color: #ffcc00;
-    text-decoration: none;
-    font-weight: bold;
-}
+    color: #ffcc00
+    text-decoration none
+    font-weight bold}
 
 .footer-contact a:hover {
     text-decoration: underline;
@@ -254,3 +252,21 @@ footer {
     font-size: 14px;
     opacity: 0.8;
 }
+
+style
+.send-container {
+    display: flex;
+    align-items: right;
+    gap: 50px;
+}
+.contact-logo {
+    width: 300px;
+    margin: 5px
+    position right}
+    margin-bottomx:1px
+    border-radius:500px
+    height:auto
+
+</style>
+</body>
+</html>
